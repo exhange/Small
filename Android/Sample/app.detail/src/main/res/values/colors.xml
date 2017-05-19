@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <!-- 录音组件 -->
+    <color name="recorder_freshOrange">#F4511E</color>
+    <color name="recorder_orange">#FF7300</color>
+    <color name="recorder_blue">#15A0F5</color>
+
+    <color name="av_color1">#f7b09e</color>
+    <color name="av_color2">#f0979b</color>
+    <color name="av_color3">#e36a97</color>
+    <color name="av_color4">#bc428b</color>
+
+    <color name="av_color_bg">#8f367c</color>
+
+    <array name="av_colors">
+        <item>@color/av_color4</item>
+        <item>@color/av_color3</item>
+        <item>@color/av_color2</item>
+        <item>@color/av_color1</item>
+    </array>
+
+    <color name="background">#FF000000</color>
+    <color name="control_back">#AA00003D</color>
+
+    <color name="lightGray">#E1E1E1</color>
+    <color name="blue_light">#0a96ff</color>
+    <color name="blue_main">#0a82e6</color>
+</resources>

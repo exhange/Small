@@ -1,6 +1,10 @@
-1.app+stub 分身宿主公共库里面增加了greenDao组件，可以支持全部的app.*使用，用此方法进行测试
+1.app+stub 分身宿主公共库里面增加了greenDao组件，可以支持全部的app.*使用，用于测试数据库应用
 2.app.detail插件里面增加了ARecyclerView依赖（含外部资源）  用此插件测试 数据库功能和外部依赖组件的问题
+3.app.detail插件里面增加了libmp3lame录音组件。
 
 测试结果：
-1.small环境项目整体编译运行，数据库操作使用正常，app.detail单个Module运行报错。（之前版本没有问题）
-2.外部组件依赖含资源small环境项目整体编译运行，报错找不到组件的问题。
+1.small环境项目整体编译运行，数据库操作使用正常，app.detail单个Module运行报错。通过测试发现app.detail必须
+自己申明权限，之前版本可以复用app.Stub的Manifest权限，建议复用Manifest全部属性。
+2.外部组件含资源的依赖在small环境项目整体编译运行，报错找不到组件的问题。
+3.录音SO库在Small环境下libmp3lame.so文件加载初始化报错的问题。
+  备注：（录音在small环境，单独Module运行和整体编译都会报错，新建项目非Small环境运行正常）

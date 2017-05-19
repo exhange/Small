@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="net.wequick.example.small.app.detail" >
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:name=".test.MyAPP"
         android:allowBackup="true"
@@ -26,6 +32,17 @@
         <activity android:name=".test.XRecyclerViewTestActivity"/>
         <activity android:name=".test.GreenDaoTestActivity"/>
         <activity android:name=".test.NextActivity"/>
+
+        <activity
+            android:name="com.czt.mp3recorder.AudioRecorderActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat" />
+
+        <service
+            android:name="com.czt.mp3recorder.AudioRecorderService"
+            android:enabled="true"
+            android:exported="true" />
+
     </application>
 
 </manifest>

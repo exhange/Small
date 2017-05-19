@@ -50,7 +50,7 @@ public class GreenDaoTestActivity extends AppCompatActivity {
 
     private NoteDao noteDao;
     private Query<Note> notesQuery;
-    private NotesDaoAdapter notesAdapter;
+    private NotesDaoAdapter notesAdapter;//使用RecyclerView适配器，small环境运行会报错
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

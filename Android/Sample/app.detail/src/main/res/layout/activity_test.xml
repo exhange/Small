@@ -22,7 +22,16 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/btn_test1"
             android:layout_marginTop="60dp"
-            android:text="测试GreenDao(Module单独运行APP.detail存在GreenDao报错问题)"
+            android:text="测试GreenDao\n(Small整体编译运行GreenDao使用正常，但Module单独运行APP.detail存在GreenDao报错问题，之前Small版本是可以单独运行的)"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_test3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_test2"
+            android:layout_marginTop="60dp"
+            android:text="测试录音组件插件SO库(Small插件运行SO库报错的问题，单独运行Module正常)"
             android:textSize="15sp" />
 
     </RelativeLayout>

@@ -3,8 +3,13 @@ package net.wequick.example.small.app.detail.test;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.czt.mp3recorder.AndroidAudioRecorder;
 
 import net.wequick.example.small.app.detail.R;
 
@@ -15,7 +20,7 @@ import net.wequick.example.small.app.detail.R;
 
 public class MyTestActivity extends Activity implements View.OnClickListener {
 
-    Button btn_test1, btn_test2;
+    Button btn_test1, btn_test2, btn_test3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +29,10 @@ public class MyTestActivity extends Activity implements View.OnClickListener {
 
         btn_test1 = (Button) findViewById(R.id.btn_test1);
         btn_test2 = (Button) findViewById(R.id.btn_test2);
+        btn_test3 = (Button) findViewById(R.id.btn_test3);
         btn_test1.setOnClickListener(this);
         btn_test2.setOnClickListener(this);
+        btn_test3.setOnClickListener(this);
     }
 
     @Override
@@ -41,7 +48,35 @@ public class MyTestActivity extends Activity implements View.OnClickListener {
                 it2.setClass(MyTestActivity.this, GreenDaoTestActivity.class);
                 startActivity(it2);
                 break;
+            case R.id.btn_test3:
+                recordAudio();
+                break;
         }
-        MyTestActivity.this.finish();
+    }
+
+    public void recordAudio() {
+        String AUDIO_FILE_PATH = Environment.getExternalStorageDirectory() + "/small/sound/";
+        AndroidAudioRecorder.with(this)
+                // Required
+                .setFilePath(AUDIO_FILE_PATH)
+                .setColor(ContextCompat.getColor(this, R.color.recorder_blue))
+                .setRequestCode(0)
+                // Optional
+                .setAutoStart(false)
+                .setKeepDisplayOn(true)
+                // Start recording
+                .record();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+                Toast.makeText(this, "Audio recorded successfully!", Toast.LENGTH_SHORT).show();
+            } else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "Audio was not recorded", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
