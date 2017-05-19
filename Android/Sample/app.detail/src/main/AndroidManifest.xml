@@ -3,12 +3,13 @@
     package="net.wequick.example.small.app.detail" >
 
     <application
+        android:name=".test.MyAPP"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/MyAppTheme" >
-        <activity android:name=".MainActivity"
+        <activity android:name=".test.MyTestActivity"
             android:launchMode="singleInstance"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -20,8 +21,11 @@
 
         <activity android:name=".SubActivity"
             android:theme="@style/MyDialog">
-
         </activity>
+
+        <activity android:name=".test.XRecyclerViewTestActivity"/>
+        <activity android:name=".test.GreenDaoTestActivity"/>
+        <activity android:name=".test.NextActivity"/>
     </application>
 
 </manifest>
